@@ -1,0 +1,23 @@
+﻿<Window x:Class="OriginalMethod.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+            <Storyboard x:Key="Animate">
+                <DoubleAnimation From="100" To="500" Duration="0:0:3" Storyboard.TargetProperty="Width"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:0"/>
+                <DoubleAnimation From="100" To="500" Duration="0:0:3" Storyboard.TargetProperty="Height"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:3"/>
+                <DoubleAnimation From="500" To="300" Duration="0:0:1" Storyboard.TargetProperty="Height"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:6"/>
+                <DoubleAnimation From="500" To="300" Duration="0:0:1" Storyboard.TargetProperty="Width"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:6"/>
+                <DoubleAnimation From="300" To="450" Duration="0:0:1" Storyboard.TargetProperty="Height"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:7"/>
+                <DoubleAnimation From="300" To="450" Duration="0:0:1" Storyboard.TargetProperty="Width"
+                                 Storyboard.TargetName="_btn" BeginTime="0:0:7"/>
+            </Storyboard>
+    </Window.Resources>
+    <Button x:Name="_btn" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"  Height="100" Click="Button_Click">
+        Click ME!</Button>
+</Window>

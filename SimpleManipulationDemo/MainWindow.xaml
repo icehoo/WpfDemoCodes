@@ -1,0 +1,31 @@
+﻿<Window x:Class="SimpleManipulationDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Simple Manipulation Demo">
+
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Stretch" Value="None" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Image Source="Images/112-1283_IMG.JPG"  
+               IsManipulationEnabled="True"
+               RenderTransform="0.5 0 0 0.5 100 100" />
+
+        <Image Source="Images/139-3926_IMG.JPG"
+               IsManipulationEnabled="True"
+               RenderTransform="0.5 0 0 0.5 200 200" />
+        
+        <Image Source="Images/IMG_0972.JPG"
+               IsManipulationEnabled="True"
+               RenderTransform="0.5 0 0 0.5 300 300" />
+        
+        <Image Source="Images/IMG_4675.JPG"
+               IsManipulationEnabled="True"
+               RenderTransform="0.5 0 0 0.5 400 400" />
+    </Grid>
+</Window>

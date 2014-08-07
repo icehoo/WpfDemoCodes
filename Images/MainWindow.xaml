@@ -1,0 +1,52 @@
+﻿<Window x:Class="Images.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"  Height="1080" Width="1980" WindowState="Maximized" WindowStyle="None" >
+    <Window.Resources>
+        
+        <Style TargetType="{x:Type ListBox}" x:Key="PhotoListBoxStyle">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}" >
+                        <WrapPanel Margin="5" IsItemsHost="True" Orientation="Horizontal" 
+                       ItemHeight="{Binding ElementName=ZoomSlider, Path='Value'}" 
+                       ItemWidth="{Binding ElementName=ZoomSlider, Path='Value'}" 
+                       VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Name="grid1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <ScrollViewer Name="scrolls" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" Margin="-5,765,5,0">
+            <ListBox
+                IsSynchronizedWithCurrentItem="True" 
+                     Name="list1" 
+                     Style="{StaticResource PhotoListBoxStyle}" 
+                     Margin="5" 
+                     SelectionMode="Extended" 
+                     SelectedIndex="-1" 
+                     Height="273"
+                     TouchMove="list1_TouchMove"
+                     TouchEnter="list1_TouchEnter" MouseDoubleClick="list1_MouseDoubleClick">
+                <!--修改其列表项的背景色-->
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="White"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="White"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="White"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="White"/>
+                        </Style.Resources>
+                    </Style>
+                    <!--<ListBoxItem>AAA</ListBoxItem>-->
+                </ListBox.Resources>
+            </ListBox>
+        </ScrollViewer>
+        <Canvas x:Name="canvas"
+                ManipulationStarting="canvas_ManipulationStarting"
+                ManipulationDelta="canvas_ManipulationDelta" Margin="-12,0,0,0" MouseDown="canvas_MouseDown">
+        </Canvas> 
+    </Grid>
+</Window>

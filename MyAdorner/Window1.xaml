@@ -1,0 +1,35 @@
+﻿<Window x:Class="MyAdorner.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="300" Width="400" Title="Mgen" Loaded="Window_Loaded">
+    <Canvas Name="canvas" Background="Black">
+        <Button Canvas.Top="21" Canvas.Left="62" Width="50" Height="40">ASD</Button>
+        <Rectangle Fill="Orange" Width="80" Height="22" Canvas.Left="53" Canvas.Top="93"></Rectangle>
+        <TextBox Text="Mgen" Height="19" Canvas.Left="152" Canvas.Top="61" Width="87" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>
+        <Slider Width="179" Height="33" Background="Red" Canvas.Left="169" Canvas.Top="192"></Slider>
+        <Ellipse Canvas.Left="331" Canvas.Top="46" Height="87" Name="ellipse1" Fill="Blue" Width="115" />
+        <Border BorderBrush="Pink" BorderThickness="2" Background="Gray" Height="160" Canvas.Left="378" Canvas.Top="190" Width="181">
+            <StackPanel>
+                <Menu>
+                    <MenuItem Header="File" ></MenuItem>
+                    <MenuItem Header="Edit"></MenuItem>
+                    <MenuItem Header="View"></MenuItem>
+                    <MenuItem Header="Help"></MenuItem>
+                </Menu>
+                <ToolBar>
+                    <Button>Hehe</Button>
+                    <Button>hi</Button>
+                    <ComboBox Width="50"></ComboBox>
+                </ToolBar>
+            </StackPanel>
+        </Border>
+        <Expander Header="Mgen" Background="GreenYellow" Height="87" Width="103" Canvas.Left="491" Canvas.Top="79.723">
+            <StackPanel>
+                <TextBlock Text="Martin"></TextBlock>
+                <TextBlock Text="Liu"></TextBlock>
+                <TextBlock Text="Bob"></TextBlock>
+                <TextBlock Text="Li"></TextBlock>
+            </StackPanel>
+        </Expander>
+    </Canvas>
+</Window>

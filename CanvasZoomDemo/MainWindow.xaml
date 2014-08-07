@@ -1,0 +1,30 @@
+﻿<Window x:Class="CanvasZoomDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Canvas
+                Margin="0"
+                Name="CanvasRoot"
+                MouseWheel="CanvasMain_MouseWheel" Background="White">
+            <Viewbox Canvas.Left="200"
+                     Canvas.Top="120"
+                     Height="300"
+                     Name="ViewBoxMain"
+                     Width="400"
+                     Stretch="UniformToFill">
+                <Canvas Height="300"
+                        Name="CanvasMain"
+                        Width="400"
+                        MouseWheel="CanvasMain_MouseWheel"
+                        MouseMove="CanvasMain_MouseMove"
+                        MouseDown="CanvasMain_MouseDown"
+                        MouseUp="CanvasMain_MouseUp">
+                	<Canvas.Background>
+                		<ImageBrush ImageSource="1210087682804bzsgdhc2a6.jpg"/>
+                	</Canvas.Background>
+                </Canvas>
+            </Viewbox>
+        </Canvas>
+    </Grid>
+</Window>

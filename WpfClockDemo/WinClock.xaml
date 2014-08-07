@@ -1,0 +1,732 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="WpfClockDemo.WinClock"
+        x:Name="Window"
+        Title="WinClock"
+        Width="150.53"
+        Height="150.958"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#02000000"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        MouseEnter="Window_MouseEnter"
+        MouseLeave="Window_MouseLeave" ShowInTaskbar="False" Topmost="True"
+        MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        Closed="Window_Closed">
+    <Window.Resources>
+        <Storyboard x:Key="STSecond"
+                    RepeatBehavior="Forever" />
+        <Storyboard x:Key="STMinute"
+                    RepeatBehavior="Forever" />
+        <Storyboard x:Key="SThour"
+                    RepeatBehavior="Forever" />
+    </Window.Resources>
+    <Canvas Margin="0.842,0,0,0">
+    	<Ellipse x:Name="ellipseOut1"
+    		Margin="0"
+    		Stroke="#FF8D8D8D"
+    		Height="150"
+    		Width="150"
+    		Fill="#FFEFF1F3"
+    		Canvas.Top="0.929"
+    		d:LayoutOverrides="Margin"
+    		Canvas.Left="-0.54" />
+    	<Ellipse x:Name="ellipseOut2"
+    		Fill="#FFF1F2F3"
+    		Height="143"
+    		Canvas.Left="2.933"
+    		Stroke="#FF828D9F"
+    		Canvas.Top="4.44"
+    		Width="143"
+    		StrokeThickness="2" />
+    	<Ellipse x:Name="ellipseOut3"
+    		Margin="0"
+    		Stroke="#FFC5D2D9"
+    		Height="138"
+    		Width="138"
+    		StrokeThickness="5"
+    		Fill="#FFF1F2F3"
+    		Canvas.Top="6.875"
+    		d:LayoutOverrides="Margin"
+    		Canvas.Left="5.439" />
+    	<Ellipse x:Name="ellipseMain"
+    		Stroke="{DynamicResource BrushMain}"
+    		Height="135"
+    		Width="135"
+    		StrokeThickness="0"
+    		Canvas.Left="6.827"
+    		Canvas.Top="8.394" Opacity="0.35" >
+    	</Ellipse>
+    	<Path Data="M0.7994755,90.708989 C7.3396923,39.597151 47.961578,3.2281993 103.57253,3.2281993 106.90141,3.2281993 61.331414,144.89641 0.7994755,90.708989 z"
+    		Stretch="Fill"
+    		Stroke="#FF0B3B48"
+    		StrokeThickness="0"
+    		RenderTransformOrigin="0.5,0.5"
+    		Height="99.833"
+    		Canvas.Left="20.927"
+    		Canvas.Top="39.081"
+    		Width="102.947">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="16.24" />
+    				<TranslateTransform X="2.0880600607869155"
+    					Y="-3.1698514427353643" />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    		<Path.Fill>
+    			<LinearGradientBrush EndPoint="0.86,0.978"
+    				StartPoint="0.256,0.102">
+    				<GradientStop Color="#4C8D97A5"
+    					Offset="0.007" />
+    				<GradientStop Color="#00F7F9FA"
+    					Offset="0.722" />
+    			</LinearGradientBrush>
+    		</Path.Fill>
+    	</Path>
+        <Path x:Name="pathSecond"
+    		Data="M17.593,16.000544 L17.5,81.5 2,81.5 2,16 z"
+    		Stretch="Fill"
+    		Stroke="{DynamicResource BrushMain}"
+    		StrokeThickness="0"
+    		RenderTransformOrigin="0.5,0.85"
+    		Fill="{DynamicResource BrushMain}"
+    		d:LayoutOverrides="HorizontalAlignment"
+    		Height="76.089"
+    		Canvas.Left="73.568"
+    		Canvas.Top="11.221"
+    		Width="1.509">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="pathMinute"
+    		Data="M17.537637,15.992807 L17.5,81.5 2,81.5 2,16 z"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		StrokeThickness="0"
+    		RenderTransformOrigin="0.5,1"
+    		Fill="{DynamicResource BrushMain}"
+    		d:LayoutOverrides="HorizontalAlignment"
+    		Height="46.304"
+    		VerticalAlignment="Top"
+    		Canvas.Left="73.058"
+    		Canvas.Top="29.503"
+    		Width="2.477">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="pathHour"
+    		Data="M17.5366,15.999706 L17.5,81.5 2,81.5 2,16 z"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		StrokeThickness="0"
+    		RenderTransformOrigin="0.5,1"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="34.64"
+    		VerticalAlignment="Top"
+    		d:LayoutOverrides="HorizontalAlignment"
+    		Canvas.Left="73.058"
+    		Canvas.Top="41.167"
+    		Width="2.477">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Ellipse x:Name="ellipseCenter"
+    		Fill="{DynamicResource BrushMain}"
+    		HorizontalAlignment="Left"
+    		Stroke="#FF0B3B48"
+    		Width="8"
+    		Height="8"
+    		StrokeThickness="2"
+    		Canvas.Left="70.405"
+    		Canvas.Top="71.969" />
+    	<Path x:Name="p1"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="103.664"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="18.349"
+    		Width="2"
+    		StrokeThickness="2"
+    		RenderTransformOrigin="0.5,0.5">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="30" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p2"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="125.863"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="40.542"
+    		Width="2"
+    		StrokeThickness="2"
+    		RenderTransformOrigin="0.5,0.5">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="60" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p3"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="134.014"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="70.902"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="90" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p4"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="125.882"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="101.214"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="120" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p5"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="103.65"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="123.464"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="150" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p6"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="73.323"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="131.589"
+    		Width="2"
+    		StrokeThickness="2" />
+    	<Path x:Name="p7"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="42.977"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="123.449"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="210" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p8"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="20.772"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="101.242"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="240" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p9"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="12.638"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="70.908"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="90" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p10"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="20.782"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="40.534"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="300" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p11"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="43.005"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="18.341"
+    		Width="2"
+    		RenderTransformOrigin="0.5,0.5"
+    		StrokeThickness="2">
+    		<Path.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform />
+    				<SkewTransform />
+    				<RotateTransform Angle="330" />
+    				<TranslateTransform />
+    			</TransformGroup>
+    		</Path.RenderTransform>
+    	</Path>
+    	<Path x:Name="p12"
+    		Data="M61.833333,19.671 L61.833333,25.666667"
+    		Fill="{DynamicResource BrushMain}"
+    		Height="10"
+    		Canvas.Left="73.366"
+    		Stretch="Fill"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="10.209"
+    		Width="2"
+    		StrokeThickness="2" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="79.48"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="11.571"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="85.998"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="12.62"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="92.401"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="14.339"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="98.534"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="16.699"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="110.006"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="23.33"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="115.177"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="27.518"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="119.797"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="32.17"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="123.948"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="37.312"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="130.516"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="48.671"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="132.892"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="54.844"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="134.594"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="61.25"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="135.636"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="67.755"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="135.636"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="81.062"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="134.61"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="87.544"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="132.892"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="93.97"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="130.516"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="100.107"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="123.9"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="111.58"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="119.765"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="116.683"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="115.097"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="121.327"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="109.907"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="125.547"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="98.518"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="132.115"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="92.369"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="134.48"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="85.966"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="136.183"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="79.464"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="137.218"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="66.172"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="137.218"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="59.686"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="136.183"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="53.327"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="134.48"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="47.109"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="132.099"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="35.701"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="125.515"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="30.577"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="121.359"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="25.859"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="116.645"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="21.749"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="111.596"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="15.125"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="100.139"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="12.766"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="94.002"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="11.047"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="87.544"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="9.988"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="81.014"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="10.004"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="67.787"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="11.047"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="61.234"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="12.766"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="54.844"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="15.125"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="48.703"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="21.701"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="37.272"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="25.875"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="32.122"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="30.561"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="27.454"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="35.669"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="23.304"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="47.077"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="16.715"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="53.263"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="14.339"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="59.638"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="12.62"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Ellipse Fill="{DynamicResource BrushMain}"
+    		Height="3"
+    		Canvas.Left="66.206"
+    		Stroke="#FF4A5E66"
+    		Canvas.Top="11.587"
+    		Width="3"
+    		StrokeThickness="0" />
+    	<Button x:Name="btnClose"
+    		Content="Button"
+    		Height="22.502"
+    		Canvas.Left="126.596"
+    		Canvas.Top="1.138"
+    		Width="22.864"
+    		Style="{DynamicResource ButtonStyleClose}"
+    		Click="btnClose_Click" Visibility="Hidden" />
+    </Canvas>
+</Window>
