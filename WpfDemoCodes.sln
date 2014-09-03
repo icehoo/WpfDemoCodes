@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SliderTest", "SliderTest\Sl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPhoneCheckBox", "IPhoneCheckBox\IPhoneCheckBox.csproj", "{03F067DC-5D3E-44AD-B948-AADD25A122D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPagesApp", "WpfPagesApp\WpfPagesApp.csproj", "{9439FA41-8F63-41AD-BB85-33D722951A3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +241,16 @@ Global
 		{03F067DC-5D3E-44AD-B948-AADD25A122D6}.Release|Mixed Platforms.Build.0 = Release|x86
 		{03F067DC-5D3E-44AD-B948-AADD25A122D6}.Release|x86.ActiveCfg = Release|x86
 		{03F067DC-5D3E-44AD-B948-AADD25A122D6}.Release|x86.Build.0 = Release|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Debug|x86.ActiveCfg = Debug|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Debug|x86.Build.0 = Debug|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Release|Any CPU.ActiveCfg = Release|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Release|x86.ActiveCfg = Release|x86
+		{9439FA41-8F63-41AD-BB85-33D722951A3F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
