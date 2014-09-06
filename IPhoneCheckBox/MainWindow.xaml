@@ -18,5 +18,6 @@
     			<my:CheckBoxIphone Content="CheckBox" Height="22" HorizontalAlignment="Left" x:Name="checkBoxIphone1_Copy1" VerticalAlignment="Top" Width="42" />
     		</StackPanel>
     	</StackPanel>
+    	<CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="22" Margin="93,58,0,0" VerticalAlignment="Top" Width="42" Style="{DynamicResource CheckBoxStyleIP}"/>
     </Grid>
 </Window>

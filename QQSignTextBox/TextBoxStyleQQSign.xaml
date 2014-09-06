@@ -1,0 +1,358 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d">
+    <LinearGradientBrush x:Key="TextBoxBorder"
+                         EndPoint="0,20"
+                         MappingMode="Absolute"
+                         StartPoint="0,0">
+        <GradientStop Color="#ABADB3"
+                      Offset="0.05" />
+        <GradientStop Color="#E2E3EA"
+                      Offset="0.07" />
+        <GradientStop Color="#E3E9EF"
+                      Offset="1" />
+    </LinearGradientBrush>
+    <!-- 应该在此定义资源字典条目。-->
+    <Style x:Key="TextBoxStyleQQSign"
+           BasedOn="{x:Null}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource TextBoxBorder}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Padding"
+                Value="1" />
+        <Setter Property="AllowDrop"
+                Value="true" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="ScrollViewer.PanningMode"
+                Value="VerticalFirst" />
+        <Setter Property="Stylus.IsFlicksEnabled"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Microsoft_Windows_Themes:ListBoxChrome x:Name="Bd"
+                                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                                            RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                                            RenderFocused="{TemplateBinding IsKeyboardFocusWithin}"
+                                                            SnapsToDevicePixels="true"
+                                                            Background="#02FFFFFF">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="GridContent" Grid.ColumnSpan="1">
+                            	<Grid.ColumnDefinitions>
+                            		<ColumnDefinition/>
+                            		<ColumnDefinition Width="Auto"/>
+                            	</Grid.ColumnDefinitions>
+                        		<ScrollViewer x:Name="PART_ContentHost"
+                            		SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            		Template="{DynamicResource ScrollViewerControlTemplateQQSign}"
+                            		BorderBrush="#02FFFFFF"
+                            		Margin="0"
+                            		Grid.ColumnSpan="1" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Auto" />
+                            	<TextBlock x:Name="tblEllipsis" Margin="0" TextWrapping="Wrap" Text="..." d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Center" Visibility="Visible"/>
+                        	</Grid>
+                        	<StackPanel x:Name="stackPanel"
+                        		Grid.Column="1"
+                        		Margin="0"
+                        		Orientation="Horizontal"
+                        		HorizontalAlignment="Right"
+                        		Visibility="Collapsed" d:LayoutOverrides="HorizontalAlignment" VerticalAlignment="Center">
+                        		<Path Data="M87.75,4.875 L88.25,16.375"
+                        			HorizontalAlignment="Stretch"
+                        			Margin="0"
+                        			Stretch="Fill"
+                        			Width="3"
+                        			Height="Auto" StrokeThickness="3" VerticalAlignment="Center" >
+                        			<Path.Stroke>
+                        				<RadialGradientBrush RadiusY="0.41" RadiusX="0.273" Center="0.438,0.49" GradientOrigin="0.431,0.518">
+                        					<GradientStop Color="#FF666666" Offset="0.55"/>
+                        					<GradientStop Offset="1"/>
+                        				</RadialGradientBrush>
+                        			</Path.Stroke>
+                        		</Path>
+                        		<CheckBox x:Name="chbShowFace" Content="CheckBox" Width="18" Height="18" Margin="3,0,2,0" VerticalAlignment="Center" Style="{DynamicResource CheckBoxStyleQQSign}"/>
+                        	</StackPanel>
+                        </Grid>
+                    </Microsoft_Windows_Themes:ListBoxChrome>
+                    <ControlTemplate.Triggers>
+                		<Trigger Property="IsFocused" Value="False" SourceName="PART_ContentHost">
+                			<Setter Property="IsChecked" TargetName="chbShowFace" Value="False"/>
+                		</Trigger>
+                		<Trigger Property="IsFocused"
+                			Value="True">
+                			<Setter Property="Background"
+                				TargetName="Bd"
+                				Value="White" />
+                			<Setter Property="BorderBrush"
+                				TargetName="Bd"
+                				Value="#FFCECECE" />
+                			<Setter Property="Visibility"
+                				TargetName="stackPanel"
+                				Value="Visible" />
+                		</Trigger>
+                		<Trigger Property="IsEnabled"
+                			Value="false">
+                			<Setter Property="Background"
+                				TargetName="Bd"
+                				Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                			<Setter Property="Foreground"
+                				Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                		</Trigger>
+                	</ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ScrollViewerControlTemplateQQSign"
+                     TargetType="{x:Type ScrollViewer}">
+        <Grid x:Name="Grid"
+              Background="{TemplateBinding Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Rectangle x:Name="Corner"
+                       Grid.Column="1"
+                       Grid.Row="1" />
+            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                    CanContentScroll="{TemplateBinding CanContentScroll}"
+                                    CanHorizontallyScroll="False"
+                                    CanVerticallyScroll="False"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Content="{TemplateBinding Content}"
+                                    Grid.Column="0"
+                                    Margin="{TemplateBinding Padding}"
+                                    Grid.Row="0" />
+            <ScrollBar x:Name="PART_VerticalScrollBar"
+                       AutomationProperties.AutomationId="VerticalScrollBar"
+                       Cursor="Arrow"
+                       Grid.Column="1"
+                       Maximum="{TemplateBinding ScrollableHeight}"
+                       Minimum="0"
+                       Grid.Row="0"
+                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                       Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                       ViewportSize="{TemplateBinding ViewportHeight}" />
+            <ScrollBar x:Name="PART_HorizontalScrollBar"
+                       AutomationProperties.AutomationId="HorizontalScrollBar"
+                       Cursor="Arrow"
+                       Grid.Column="0"
+                       Maximum="{TemplateBinding ScrollableWidth}"
+                       Minimum="0"
+                       Orientation="Horizontal"
+                       Grid.Row="1"
+                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                       Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                       ViewportSize="{TemplateBinding ViewportWidth}" />
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="ButtonFocusVisual">
+    	<Setter Property="Control.Template">
+    		<Setter.Value>
+    			<ControlTemplate>
+    				<Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+    	<GradientStop Color="#F3F3F3" Offset="0"/>
+    	<GradientStop Color="#EBEBEB" Offset="0.5"/>
+    	<GradientStop Color="#DDDDDD" Offset="0.5"/>
+    	<GradientStop Color="#CDCDCD" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+    <Style x:Key="ButtonStyleQQFace" TargetType="{x:Type Button}">
+    	<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+    	<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+    	<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+    	<Setter Property="BorderThickness" Value="1"/>
+    	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    	<Setter Property="HorizontalContentAlignment" Value="Center"/>
+    	<Setter Property="VerticalContentAlignment" Value="Center"/>
+    	<Setter Property="Padding" Value="1"/>
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type Button}">
+    				<Grid x:Name="GridFace"
+    					Margin="0"
+    					Width="18"
+    					Height="18"
+	d:LayoutOverrides="Margin" Background="#02FFFFFF" RenderTransformOrigin="0.5,0.5"
+	>
+    					<Grid.RenderTransform>
+    						<TransformGroup>
+    							<ScaleTransform/>
+    							<SkewTransform/>
+    							<RotateTransform/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+    					</Grid.RenderTransform>
+    					<Ellipse x:Name="ellipse2" Margin="0"
+    						Stroke="#FF434343" />
+    					<Ellipse x:Name="ellipse" HorizontalAlignment="Left"
+    						Height="3"
+    						Margin="4.21,5.332,0,0"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Top"
+    						Width="3" Fill="#FF434343" />
+    					<Ellipse x:Name="ellipse1" HorizontalAlignment="Right"
+    						Height="3"
+    						Margin="0,5.332,4.045,0"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Top"
+    						Width="3" Fill="#FF434343" />
+    					<Path x:Name="path" Data="M13.482972,13.088382 C11.353606,13.916526 7.2820259,13.937265 4.3999724,13.005048 7.8792924,13.414163 10.764479,13.415441 13.482972,13.088382 z"
+    						Height="3.061"
+    						Margin="6.327,0,6.272,3.609"
+    						Stretch="Fill"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Bottom" Fill="#FF434343" />
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="IsPressed" Value="True">
+    						<Setter Property="RenderTransform" TargetName="GridFace">
+    							<Setter.Value>
+    								<TransformGroup>
+    									<ScaleTransform/>
+    									<SkewTransform/>
+    									<RotateTransform/>
+    									<TranslateTransform X="1" Y="1"/>
+    								</TransformGroup>
+    							</Setter.Value>
+    						</Setter>
+    						<Setter Property="Background" TargetName="GridFace" Value="#02388339"/>
+    						<Setter Property="Fill" TargetName="ellipse2" Value="#FF55ED20"/>
+    						<Setter Property="Fill" TargetName="path" Value="#02434343"/>
+    						<Setter Property="Data" TargetName="path" Value="M13.482972,13.088382 C11.423555,14.950177 7.3557645,15.026924 4.3999724,13.005048 7.8792924,13.414163 10.764479,13.415441 13.482972,13.088382 z"/>
+    					</Trigger>
+    					<Trigger Property="IsMouseOver" Value="True">
+    						<Setter Property="Fill" TargetName="ellipse" Value="#00434343"/>
+    						<Setter Property="Fill" TargetName="ellipse1" Value="#00434343"/>
+    						<Setter Property="Fill" TargetName="path" Value="#00434343"/>
+    					</Trigger>
+    					<Trigger Property="IsKeyboardFocused" Value="true"/>
+    					<Trigger Property="ToggleButton.IsChecked" Value="true"/>
+    					<Trigger Property="IsEnabled" Value="false">
+    						<Setter Property="Foreground" Value="#ADADAD"/>
+    					</Trigger>
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <SolidColorBrush x:Key="CheckBoxFillNormal" Color="#F4F4F4"/>
+    <SolidColorBrush x:Key="CheckBoxStroke" Color="#8E8F8F"/>
+    <Style x:Key="EmptyCheckBoxFocusVisual">
+    	<Setter Property="Control.Template">
+    		<Setter.Value>
+    			<ControlTemplate>
+    				<Rectangle Margin="1" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="CheckRadioFocusVisual">
+    	<Setter Property="Control.Template">
+    		<Setter.Value>
+    			<ControlTemplate>
+    				<Rectangle Margin="14,0,0,0" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+    <Style x:Key="CheckBoxStyleQQSign" TargetType="{x:Type CheckBox}">
+    	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    	<Setter Property="Background" Value="{StaticResource CheckBoxFillNormal}"/>
+    	<Setter Property="BorderBrush" Value="{StaticResource CheckBoxStroke}"/>
+    	<Setter Property="BorderThickness" Value="1"/>
+    	<Setter Property="FocusVisualStyle" Value="{StaticResource EmptyCheckBoxFocusVisual}"/>
+    	<Setter Property="Template">
+    		<Setter.Value>
+    			<ControlTemplate TargetType="{x:Type CheckBox}">
+    				<Grid x:Name="GridFace"
+    					Margin="0"
+    					Width="18"
+    					Height="18"
+    					Background="#02FFFFFF" RenderTransformOrigin="0.5,0.5"
+	d:LayoutOverrides="Margin"
+	>
+    					<Grid.RenderTransform>
+    						<TransformGroup>
+    							<ScaleTransform/>
+    							<SkewTransform/>
+    							<RotateTransform/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+    					</Grid.RenderTransform>
+    					<Ellipse x:Name="ellipse2" Margin="0"
+    						Stroke="#FF434343" />
+    					<Ellipse x:Name="ellipse" HorizontalAlignment="Left"
+    						Height="3"
+    						Margin="4.21,5.332,0,0"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Top"
+    						Width="3" Fill="#FF434343" />
+    					<Ellipse x:Name="ellipse1" HorizontalAlignment="Right"
+    						Height="3"
+    						Margin="0,5.332,4.045,0"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Top"
+    						Width="3" Fill="#FF434343" />
+    					<Path x:Name="path" Data="M13.482972,13.088382 C11.353606,13.916526 7.2820259,13.937265 4.3999724,13.005048 7.8792924,13.414163 10.764479,13.415441 13.482972,13.088382 z"
+    						Height="3.149"
+    						Margin="6.327,0,6.272,3.609"
+    						Stretch="Fill"
+    						Stroke="#FF434343"
+    						VerticalAlignment="Bottom" Fill="#FF434343" />
+    				</Grid>
+    				<ControlTemplate.Triggers>
+    					<Trigger Property="IsChecked" Value="True">
+    						<Setter Property="Fill" TargetName="ellipse2" Value="#FF9BD622"/>
+    						<Setter Property="Data" TargetName="path" Value="M13.482972,13.088382 C11.353606,13.916526 7.2820259,13.937265 4.3999724,13.005048 7.9667125,12.953885 10.851094,12.959403 13.482972,13.088382 z"/>
+    						<Setter Property="Fill" TargetName="path" Value="#00434343"/>
+    						<Setter Property="RenderTransform" TargetName="GridFace">
+    							<Setter.Value>
+    								<TransformGroup>
+    									<ScaleTransform/>
+    									<SkewTransform/>
+    									<RotateTransform/>
+    									<TranslateTransform X="1" Y="1"/>
+    								</TransformGroup>
+    							</Setter.Value>
+    						</Setter>
+    					</Trigger>
+    					<Trigger Property="IsMouseOver" Value="True">
+    						<Setter Property="Fill" TargetName="ellipse" Value="#00434343"/>
+    						<Setter Property="Fill" TargetName="ellipse1" Value="#00434343"/>
+    					</Trigger>
+    					<Trigger Property="HasContent" Value="true">
+    						<Setter Property="FocusVisualStyle" Value="{StaticResource CheckRadioFocusVisual}"/>
+    						<Setter Property="Padding" Value="4,0,0,0"/>
+    					</Trigger>
+    					<Trigger Property="IsEnabled" Value="false">
+    						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+    					</Trigger>
+    				</ControlTemplate.Triggers>
+    			</ControlTemplate>
+    		</Setter.Value>
+    	</Setter>
+    </Style>
+</ResourceDictionary>

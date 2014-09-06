@@ -33,10 +33,15 @@ namespace IPhoneCheckBox
 			sbRectangleHide = this.FindResource("SB_RectangleHide") as Storyboard;
 		}
 
-		protected override void OnChecked(RoutedEventArgs e)
+		public override void OnApplyTemplate()
 		{
+			base.OnApplyTemplate();
 			ellipse = this.Template.FindName("ellipse", this) as Ellipse;
 			rectangle = this.Template.FindName("rectangleWhite", this) as Path;
+		}
+
+		protected override void OnChecked(RoutedEventArgs e)
+		{
 			base.OnChecked(e);
 			if (sbMoveToRight != null)
 			{
