@@ -40,6 +40,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPhoneCheckBox", "IPhoneCheckBox\IPhoneCheckBox.csproj", "{03F067DC-5D3E-44AD-B948-AADD25A122D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPagesApp", "WpfPagesApp\WpfPagesApp.csproj", "{9439FA41-8F63-41AD-BB85-33D722951A3F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QQSignTextBox", "QQSignTextBox\QQSignTextBox.csproj", "{485AC8BE-272A-4C41-A16E-1AD569E30F7F}"
 EndProject
 Global
