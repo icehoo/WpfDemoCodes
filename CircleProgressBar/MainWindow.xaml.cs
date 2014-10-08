@@ -34,8 +34,7 @@ namespace CircleProgressBar
 		{
 			this.Dispatcher.Invoke(new Action(() =>
 			{
-				//pbMain.Value += 1;
-				c1.Value += 1;
+				pbMain.Value += 1;
 			}));
 		}
 

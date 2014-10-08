@@ -1,12 +1,21 @@
 ﻿<Window x:Class="CircleProgressBar.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow"
+        Height="350"
+        Width="525"
         xmlns:my="clr-namespace:CircleProgressBar">
     <Grid>
-    	<ProgressBar x:Name="pbMain" Height="100" Margin="120,96,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Style="{DynamicResource ProgressBarStyleCircle}" Maximum="360"/>
-    	<Button Content="start" HorizontalAlignment="Right" Margin="0,120,173,152" Width="56"
-                Click="Button_Click" />
-    	<my:CircleProgressBarStyle x:Name="c1" HorizontalAlignment="Right" Height="100" Margin="0,0,133,32" VerticalAlignment="Bottom" Width="100" Maximum="360"/>
+        <ProgressBar x:Name="pbMain"
+                     Height="100"
+                     Margin="208,120,201,0"
+                     VerticalAlignment="Top"
+                     Style="{DynamicResource ProgressBarStyleCircle}"
+                     Maximum="360" />
+        <Button Content="start"
+                Margin="232,56,221,0"
+                Click="Button_Click"
+                Height="40"
+                VerticalAlignment="Top" />
     </Grid>
 </Window>
