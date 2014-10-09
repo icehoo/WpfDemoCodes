@@ -8,14 +8,20 @@
     <Grid>
         <ProgressBar x:Name="pbMain"
                      Height="100"
-                     Margin="208,120,201,0"
+                     Margin="140,124,0,0"
                      VerticalAlignment="Top"
                      Style="{DynamicResource ProgressBarStyleCircle}"
-                     Maximum="360" />
+                     Maximum="360" HorizontalAlignment="Left" Width="100" />
         <Button Content="start"
                 Margin="232,56,221,0"
                 Click="Button_Click"
                 Height="40"
                 VerticalAlignment="Top" />
+        <ProgressBar x:Name="pbMain_Copy"
+        	Height="100"
+        	Margin="0,124,133,0"
+        	VerticalAlignment="Top"
+        	Style="{DynamicResource ProgressBarStyleFullCircle}"
+        	Maximum="360" HorizontalAlignment="Right" Width="100" />
     </Grid>
 </Window>

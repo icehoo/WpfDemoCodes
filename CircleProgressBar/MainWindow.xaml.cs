@@ -35,6 +35,7 @@ namespace CircleProgressBar
 			this.Dispatcher.Invoke(new Action(() =>
 			{
 				pbMain.Value += 1;
+				pbMain_Copy.Value += 1;
 			}));
 		}
 

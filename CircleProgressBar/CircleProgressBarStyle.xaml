@@ -177,5 +177,77 @@
             </Setter.Value>
         </Setter>
     </Style>
+	<Style x:Key="ProgressBarStyleFullCircle"
+		TargetType="{x:Type ProgressBar}">
+		<Setter Property="Foreground"
+			Value="#01D328" />
+		<Setter Property="Background"
+			Value="{StaticResource ProgressBarBackground}" />
+		<Setter Property="BorderBrush"
+			Value="{StaticResource ProgressBarBorderBrush}" />
+		<Setter Property="BorderThickness"
+			Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ProgressBar}">
+					<Grid x:Name="TemplateRoot"
+						SnapsToDevicePixels="true">
+						<Rectangle x:Name="PART_Track"
+							Margin="1" />
+						<Decorator x:Name="PART_Indicator"
+							HorizontalAlignment="Left"
+							Margin="1"
+							Visibility="Hidden">
+							<Grid x:Name="Foreground">
+								<Rectangle x:Name="Indicator"
+									Fill="{TemplateBinding Foreground}" />
+							</Grid>
+						</Decorator>
+						<ed:Arc x:Name="ArcMain"
+							ArcThicknessUnit="Percent"
+							HorizontalAlignment="Stretch"
+							Height="Auto"
+							Stretch="None"
+							StartAngle="0"
+							Width="Auto"
+							Fill="#FF72EFFF"
+							EndAngle="{TemplateBinding Value}" ArcThickness="1" />
+						<TextBlock x:Name="tblPercent"
+							TextWrapping="Wrap"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center">
+							<TextBlock.Text>
+								<MultiBinding Converter="{StaticResource ResourceKey=percent}">
+									<Binding Path="Value"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+									<Binding Path="Maximum"
+										RelativeSource="{RelativeSource TemplatedParent}" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Orientation"
+							Value="Vertical">
+							<Setter Property="LayoutTransform"
+								TargetName="TemplateRoot">
+								<Setter.Value>
+									<RotateTransform Angle="-90" />
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsIndeterminate"
+							Value="true">
+							<Setter Property="Visibility"
+								TargetName="Indicator"
+								Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsIndeterminate"
+							Value="false" />
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 
 </ResourceDictionary>
