@@ -1,0 +1,8 @@
+﻿<Window x:Class="FourSideBorder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" xmlns:my="clr-namespace:FourSideBorder">
+    <Grid>
+        <my:SupperBorder LeftBorderBrush="Red" RightBorderBrush="Green" TopBorderBrush="Blue" BottomBorderBrush="#FF64EBEB" BorderThickness="1" Height="100" HorizontalAlignment="Left" Margin="144,84,0,0" x:Name="supperBorder1" VerticalAlignment="Top" Width="200" />
+    </Grid>
+</Window>
