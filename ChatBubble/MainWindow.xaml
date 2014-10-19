@@ -2,19 +2,21 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ChatBubble.MainWindow"
-        Title="MainWindow" Height="442" Width="265.5" Background="White" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="521.334" Width="265.5" WindowStartupLocation="CenterScreen" Background="#FF454545">
     <Grid>
     	<StackPanel>
     		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatBuuble}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="一个人吃饭是怎么做才显得不寂寞？" d:LayoutOverrides="HorizontalAlignment" Margin="10,5,0,5"/>
-    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FFC4FAD6" Text="啃你的饭吧，没人会去注意你的。" Margin="0,5,10,5"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="啃你的饭吧，没人会去注意你的。" Margin="0,5,10,5"/>
     		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatBuuble}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="如何提高女朋友的智商？" Margin="10,5,0,5"/>
-    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FFC4FAD6" Text="她不喜欢你的时候，智商自然就高起来了。" Margin="0,5,10,5"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="她不喜欢你的时候，智商自然就高起来了。" Margin="0,5,10,5"/>
     		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatBuuble}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="怎么回答女生问“你为什么对我这么好”？" Margin="10,5,0,5"/>
-    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FFC4FAD6" Text="因为我是你的备胎啊。" Margin="0,5,10,5"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="因为我是你的备胎啊。" Margin="0,5,10,5"/>
     		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatBuuble}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="啊" Margin="10,5,0,5"/>
-    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FFC4FAD6" Text="啊你妹啊结束了" Margin="0,5,10,5"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleChatGreen}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="啊你妹啊结束了" Margin="0,5,10,5"/>
     		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleFreeRectanle}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="什么情况？" Margin="10,5,0,5" Background="#FFE5E5EA"/>
-    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleFreeRectanle}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FFC4FAD6" Text="一般这个时候沉默就行了" Margin="0,5,10,5" Background="#FF00E84F"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleFreeRectanle}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="一般这个时候沉默就行了" Background="#FF00E84F" Margin="0,5,10,5"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleFreeRectanle}" HorizontalAlignment="Left" MaxWidth="200" Foreground="#FF212122" Text="什么情况？什么情况？什么情况？什么情况？什么情况？什么情况？什么情况？什么情况？什么情况？什么情况？" Margin="10,5,0,5" Background="#FFE5E5EA"/>
+    		<TextBox TextWrapping="Wrap" Style="{DynamicResource TextBoxStyleFreeRectanle}" HorizontalAlignment="Right" MaxWidth="200" Foreground="#FF333333" Text="..." Background="#FF00E84F" Margin="0,5,10,5"/>
     	</StackPanel>
     </Grid>
 </Window>
