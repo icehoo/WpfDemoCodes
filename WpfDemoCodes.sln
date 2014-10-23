@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatBubble", "ChatBubble\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourSideBorder", "FourSideBorder\FourSideBorder.csproj", "{88A5F9C9-30F3-4123-82D4-4BE3470603CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GISPath", "GISPath\GISPath.csproj", "{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -299,6 +301,16 @@ Global
 		{88A5F9C9-30F3-4123-82D4-4BE3470603CD}.Release|Mixed Platforms.Build.0 = Release|x86
 		{88A5F9C9-30F3-4123-82D4-4BE3470603CD}.Release|x86.ActiveCfg = Release|x86
 		{88A5F9C9-30F3-4123-82D4-4BE3470603CD}.Release|x86.Build.0 = Release|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Debug|x86.ActiveCfg = Debug|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Debug|x86.Build.0 = Debug|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Release|Any CPU.ActiveCfg = Release|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Release|x86.ActiveCfg = Release|x86
+		{72D5EEAF-2893-4C45-8372-C5E240EFF7A0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
