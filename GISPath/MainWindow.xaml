@@ -1,9 +1,31 @@
-﻿<Window x:Class="GISPath.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid Name="lay">
-        <Path Name="rec" Stroke="Red" StrokeThickness="1" Fill="Green" Margin="50,50,241,158" Data="M 0,0 H 200 L 210,10 V 100 H 10 L 0,90 Z"/>
-        <Button Content="Button" Height="33" HorizontalAlignment="Left" Margin="319,61,0,0" Name="button1" VerticalAlignment="Top" Width="108" Click="button1_Click" />
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+        mc:Ignorable="d"
+        x:Class="GISPath.MainWindow"
+        Title="MainWindow"
+        Height="350"
+        Width="525"
+        Loaded="Window_Loaded">
+    <Grid x:Name="lay">
+        <Button Content="Button"
+                Height="33"
+                HorizontalAlignment="Left"
+                Margin="319,61,0,0"
+                x:Name="button1"
+                VerticalAlignment="Top"
+                Width="108"
+                Click="button1_Click" />
+        <TextBox HorizontalAlignment="Left"
+                 Margin="72,8,0,0"
+                 x:Name="textBox1"
+                 VerticalAlignment="Top"
+                 Text="1213123124"
+                 MaxWidth="200"
+                 TextWrapping="Wrap"
+                 SizeChanged="textBox1_SizeChanged"
+                 BorderThickness="0" />
     </Grid>
 </Window>
