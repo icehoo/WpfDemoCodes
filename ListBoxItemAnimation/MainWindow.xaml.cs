@@ -27,6 +27,7 @@ namespace ListBoxItemAnimation
             // 在此点下面插入创建对象所需的代码。
             LoadListBoxSource();
             listBoxMain.ItemsSource = CollectionPersonSource;
+            lbhori.ItemsSource = CollectionPersonSource;
         }
 
         private void LoadListBoxSource()

@@ -11,42 +11,115 @@
 
     <Grid x:Name="LayoutRoot">
         <ListBox x:Name="listBoxMain"
-                 Margin="192,16,208,18" Height="320" Width="210">
+                 Margin="0,0,405.2,172.8"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <Storyboard x:Key="STLoad">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+                                                           Storyboard.TargetName="button">
+                                <EasingDoubleKeyFrame KeyTime="0"
+                                                      Value="-200" >
+                                	<EasingDoubleKeyFrame.EasingFunction>
+                                		<BackEase EasingMode="EaseOut" Amplitude="1"/>
+                                	</EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                                      Value="0" >
+                                	<EasingDoubleKeyFrame.EasingFunction>
+                                		<BackEase EasingMode="EaseOut" Amplitude="1"/>
+                                	</EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </DataTemplate.Resources>
+                    <Button x:Name="button"
+                            Content="{Binding Name}"
+                            Height="30"
+                            Width="200"
+                            RenderTransformOrigin="0.5,0.5"
+                            Style="{DynamicResource ButtonStyle1}">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                    <DataTemplate.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource STLoad}" />
+                        </EventTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="加载"
+                HorizontalAlignment="Right"
+                Height="40"
+                Margin="0,123.2,290.2,0"
+                VerticalAlignment="Top"
+                Width="80"
+                Name="btnLoad"
+                Click="btnLoad_Click" />
+        <Button Content="卸载"
+                HorizontalAlignment="Right"
+                Height="40"
+                Margin="0,0,290.2,222.8"
+                VerticalAlignment="Bottom"
+                Width="80"
+                Name="btnUnLoad"
+                Click="btnUnLoad_Click" />
+        <ListBox x:Name="lbhori"
+                 HorizontalAlignment="Left"
+                 Height="53"
+                 Margin="0,367,0,0"
+                 VerticalAlignment="Top"
+                 Width="635.2">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                 	<DataTemplate.Resources>
-                		<Storyboard x:Key="STLoad">
-                			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="button">
-                				<EasingDoubleKeyFrame KeyTime="0" Value="-200"/>
-                				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                		<Storyboard x:Key="StoryboardDown">
+                			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="stackPanel">
+                				<EasingDoubleKeyFrame KeyTime="0" Value="-20">
+                					<EasingDoubleKeyFrame.EasingFunction>
+                						<BackEase EasingMode="EaseOut"/>
+                					</EasingDoubleKeyFrame.EasingFunction>
+                				</EasingDoubleKeyFrame>
+                				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                					<EasingDoubleKeyFrame.EasingFunction>
+                						<BackEase EasingMode="EaseOut"/>
+                					</EasingDoubleKeyFrame.EasingFunction>
+                				</EasingDoubleKeyFrame>
                 			</DoubleAnimationUsingKeyFrames>
                 		</Storyboard>
                 	</DataTemplate.Resources>
-                    <Button x:Name="button" Content="{Binding Name}"
-                            Height="30"
-                            Width="200" RenderTransformOrigin="0.5,0.5" Style="{DynamicResource ButtonStyle1}" >
-                    	<Button.RenderTransform>
+                    <StackPanel x:Name="stackPanel" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Background="{x:Null}">
+                        <StackPanel.RenderTransform>
                     		<TransformGroup>
                     			<ScaleTransform/>
                     			<SkewTransform/>
                     			<RotateTransform/>
                     			<TranslateTransform/>
                     		</TransformGroup>
-                    	</Button.RenderTransform>
-                    </Button>
+                    	</StackPanel.RenderTransform>
+                        <TextBlock Text="{Binding Name}" Width="Auto" /></StackPanel>
                 	<DataTemplate.Triggers>
                 		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                			<BeginStoryboard Storyboard="{StaticResource STLoad}"/>
+                			<BeginStoryboard Storyboard="{StaticResource StoryboardDown}"/>
                 		</EventTrigger>
                 	</DataTemplate.Triggers>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="加载" HorizontalAlignment="Right" Height="40" Margin="0,168,96,0" VerticalAlignment="Top" Width="80"
-                Name="btnLoad"
-                Click="btnLoad_Click" />
-        <Button Content="卸载" HorizontalAlignment="Right" Height="40" Margin="0,0,96,178" VerticalAlignment="Bottom" Width="80"
-                Name="btnUnLoad"
-                Click="btnUnLoad_Click" />
     </Grid>
 </Window>
